@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GLOBEX SOLUTIONS | Inovasi Digital & Solusi Teknologi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* Custom Scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f0b90b;
+            border-radius: 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(240, 185, 11, 0.2);
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #f0b90b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #f0b90b;
+        }
+        .btn-wa-nav {
+            background: #25D366;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 6rem 2rem 4rem;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #f0b90b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #f0b90b;
+            color: #0a0a0a;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .btn-outline {
+            border: 1px solid #f0b90b;
+            color: #f0b90b;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #f0b90b;
+            color: #0a0a0a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #f0b90b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .section-sub {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 3rem;
+        }
+
+        /* Service Grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: rgba(20, 20, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            border: 1px solid rgba(240, 185, 11, 0.2);
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #f0b90b;
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #f0b90b;
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .service-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .service-card li {
+            padding: 0.3rem 0;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+        .service-card li i {
+            color: #f0b90b;
+            margin-right: 0.5rem;
+        }
+        .btn-wa-service {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .step-item {
+            background: rgba(20, 20, 40, 0.4);
+            padding: 2rem;
+            border-radius: 1.5rem;
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #f0b90b;
+            color: #0a0a0a;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        /* Guarantee Grid */
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .guarantee-card {
+            background: rgba(20, 20, 40, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid rgba(240, 185, 11, 0.2);
+        }
+        .guarantee-card i {
+            font-size: 2rem;
+            color: #f0b90b;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Testimoni */
+        .testimoni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimoni-card {
+            background: rgba(20, 20, 40, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid #f0b90b;
+        }
+        .testimoni-text {
+            font-style: italic;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        .testimoni-author {
+            font-weight: 700;
+            color: #f0b90b;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: rgba(20, 20, 40, 0.4);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            background: rgba(240, 185, 11, 0.1);
+        }
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: #94a3b8;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #050505;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(240, 185, 11, 0.2);
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0.5rem 0;
+        }
+        .footer-links a:hover {
+            color: #f0b90b;
+        }
+        .sosmed {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .sosmed a {
+            color: #94a3b8;
+            font-size: 1.5rem;
+        }
+        .sosmed a:hover {
+            color: #f0b90b;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        /* Modal Terms */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #1a1a2e;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid #f0b90b;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close-modal {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Floating */
+        .wa-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .nav-container { flex-direction: column; }
+            .service-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo"><h1>GLOBEX SOLUTIONS</h1></div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#services">Layanan</a>
+            <a href="#howitworks">Cara Kerja</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#faq">FAQ</a>
+            <a href="#" id="termsLink">Terms of Service</a>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20ingin%20konsultasi%20tentang%20layanan%20Anda" class="btn-wa-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Membangun Masa Depan Bisnis Anda<br>Melalui Inovasi Digital</h2>
+        <p>Mitra Terpercaya untuk Solusi Teknologi Terintegrasi dan Strategi Pertumbuhan Global.</p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20tertarik%20dengan%20penawaran%20khusus%20Anda" class="btn-primary">DAPATKAN PENAWARAN KHUSUS</a>
+            <a href="#testimoni" class="btn-outline">LIHAT CASE STUDIES</a>
+        </div>
+    </div>
+</section>
+
+<!-- Layanan Section -->
+<div class="container" id="services">
+    <h2 class="section-title">LAYANAN KORPORAT & AKADEMIK</h2>
+    <p class="section-sub">Solusi lengkap untuk kebutuhan bisnis dan pendidikan Anda</p>
+    <div class="service-grid">
+        <!-- Data Analysis -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Data Analysis</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> Analisis Data untuk solusi bisnis</li>
+                <li><i class="fas fa-check"></i> Pelatihan Data Analysis</li>
+                <li><i class="fas fa-check"></i> Outsourcing IT</li>
+            </ul>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20tertarik%20dengan%20layanan%20Data%20Analysis" class="btn-wa-service"><i class="fab fa-whatsapp"></i> Konsultasi Gratis</a>
+        </div>
+        <!-- Software Development -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Software Development</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> Sistem Manajemen Rantai Pasok AI</li>
+                <li><i class="fas fa-check"></i> Finance Cloud Cost</li>
+                <li><i class="fas fa-check"></i> Aplikasi Perbankan Seluler Aman</li>
+            </ul>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20tertarik%20dengan%20layanan%20Software%20Development" class="btn-wa-service"><i class="fab fa-whatsapp"></i> Konsultasi Gratis</a>
+        </div>
+        <!-- Pembuatan APK Java (DIPISAHKAN) -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fab fa-android"></i></div>
+            <h3>Pembuatan APK Java (Android Native)</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> UI/UX Modern & Responsif</li>
+                <li><i class="fas fa-check"></i> Integrasi Database (Firebase/MySQL)</li>
+                <li><i class="fas fa-check"></i> Debugging & Optimalisasi</li>
+                <li><i class="fas fa-check"></i> Publikasi ke Google Playstore</li>
+            </ul>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20tertarik%20membuat%20APK%20Java" class="btn-wa-service"><i class="fab fa-whatsapp"></i> Konsultasi Gratis</a>
+        </div>
+        <!-- Joki Codingan -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>JOKI CODINGAN</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> Java, Python, C++, PHP, JavaScript</li>
+                <li><i class="fas fa-check"></i> Back-end & Front-end</li>
+                <li><i class="fas fa-check"></i> Debug & Optimalisasi</li>
+                <li><i class="fas fa-check"></i> Konsultasi Privat</li>
+            </ul>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20butuh%20joki%20codingan" class="btn-wa-service"><i class="fab fa-whatsapp"></i> Dapatkan Penawaran</a>
+        </div>
+        <!-- Pembuatan Website -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-globe"></i></div>
+            <h3>Pembuatan Website Kustom</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> E-commerce & Company Profile</li>
+                <li><i class="fas fa-check"></i> UI/UX Responsif</li>
+                <li><i class="fas fa-check"></i> SEO & Optimasi</li>
+                <li><i class="fas fa-check"></i> Sistem Manajemen Konten</li>
+            </ul>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20tertarik%20buat%20website" class="btn-wa-service"><i class="fab fa-whatsapp"></i> Mulai Projek</a>
+        </div>
+        <!-- Makalah Ilmiah & Jurnal -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Pembuatan Makalah Ilmiah & Jurnal</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> Review Jurnal Bereputasi</li>
+                <li><i class="fas fa-check"></i> Indeks Scopus/SINTA</li>
+                <li><i class="fas fa-check"></i> Bebas Plagiarisme</li>
+                <li><i class="fas fa-check"></i> Bantuan Formatting Jurnal</li>
+            </ul>
+            <a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20tertarik%20layanan%20makalah%20ilmiah" class="btn-wa-service"><i class="fab fa-whatsapp"></i> Explore Publikasi</a>
+        </div>
+    </div>
+</div>
+
+<!-- Cara Kerja (How It Works) -->
+<div class="container" id="howitworks">
+    <h2 class="section-title">Cara Kerja</h2>
+    <p class="section-sub">Proses mudah & transparan untuk semua layanan</p>
+    <div class="steps-grid">
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <h3>Konsultasi & Penawaran</h3>
+            <p>Klien kirim detail tugas/proyek, tim kami memberikan penawaran harga.</p>
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <h3>Pengerjaan & Progress</h3>
+            <p>Kami kerjakan sesuai deadline, klien dapat update berkala.</p>
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <h3>Review & Finalisasi</h3>
+            <p>Klien review hasil, revisi jika perlu, proyek selesai.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Jaminan Keamanan -->
+<div class="container">
+    <h2 class="section-title">Jaminan Keamanan & Kualitas</h2>
+    <div class="guarantee-grid">
+        <div class="guarantee-card">
+            <i class="fas fa-sync-alt"></i>
+            <h3>Garansi Revisi</h3>
+            <p>Revisi sampai proyek selesai dan klien puas.</p>
+        </div>
+        <div class="guarantee-card">
+            <i class="fas fa-lock"></i>
+            <h3>Privasi Data Terjamin</h3>
+            <p>100% Confidential, data klien aman.</p>
+        </div>
+        <div class="guarantee-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Anti-Plagiarisme</h3>
+            <p>Khusus layanan akademik, hasil 100% original.</p>
+        </div>
+        <div class="guarantee-card">
+            <i class="fas fa-clock"></i>
+            <h3>Tepat Waktu</h3>
+            <p>Pengerjaan sesuai deadline yang disepakati.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Testimoni / Portfolio -->
+<div class="container" id="testimoni">
+    <h2 class="section-title">Apa Kata Klien Kami?</h2>
+    <p class="section-sub">Lebih dari 100+ klien puas dengan layanan GLOBEX</p>
+    <div class="testimoni-grid">
+        <div class="testimoni-card">
+            <p class="testimoni-text">"GLOBEX membantu saya menyelesaikan tugas akhir APK Java tepat waktu. Hasilnya sangat memuaskan!"</p>
+            <p class="testimoni-author">— Ahmad R., Mahasiswa Teknik Informatika</p>
+        </div>
+        <div class="testimoni-card">
+            <p class="testimoni-text">"Layanan jurnal dan makalah sangat profesional. Terima kasih GLOBEX, artikel saya terbit di SINTA 2!"</p>
+            <p class="testimoni-author">— Dr. Siti F., Dosen Ekonomi</p>
+        </div>
+        <div class="testimoni-card">
+            <p class="testimoni-text">"Website company profile perusahaan kami jadi modern dan SEO friendly. Pelayanan cepat dan responsif."</p>
+            <p class="testimoni-author">— Budi S., Owner UMKM</p>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="container" id="faq">
+    <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <div class="faq-question">Berapa lama pengerjaan APK / Website? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Pengerjaan APK Java rata-rata 7-14 hari, website 5-10 hari tergantung kompleksitas fitur.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Apakah bisa bimbingan coding secara privat? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Ya, kami menyediakan layanan konsultasi privat coding (online via Zoom/Google Meet).</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Bagaimana sistem pembayaran? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Pembayaran: DP 50% di awal, 50% setelah proyek selesai. Transfer via bank atau e-wallet.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Apakah hasil makalah/jurnal dijamin bebas plagiarisme? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Ya, semua hasil akademik kami cek dengan Turnitin dan dijamin original (similarity <20%).</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Apakah ada garansi revisi? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Ya, revisi gratis sampai proyek dinyatakan selesai dan klien puas.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-links">
+            <h3>GLOBEX SOLUTIONS</h3>
+            <p>Solusi Teknologi Terintegrasi & Strategi Pertumbuhan Global</p>
+            <div class="sosmed">
+                <a href="https://instagram.com/javaexprest.27" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/62882007027443" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://tiktok.com/@archiles_.27" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Layanan</h4>
+            <a href="#">Data Analysis</a>
+            <a href="#">Software Development</a>
+            <a href="#">Pembuatan APK Java</a>
+            <a href="#">Joki Codingan</a>
+            <a href="#">Pembuatan Website</a>
+            <a href="#">Makalah & Jurnal</a>
+        </div>
+        <div class="footer-links">
+            <h4>Informasi</h4>
+            <a href="#" id="termsLinkFooter">Terms of Service</a>
+            <a href="#faq">FAQ</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#howitworks">Cara Kerja</a>
+        </div>
+        <div class="footer-links">
+            <h4>Kontak</h4>
+            <p><i class="fab fa-whatsapp"></i> +62 882-0070-27443</p>
+            <p><i class="fas fa-envelope"></i> globex@solution.com</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2026 GLOBEX SOLUTIONS. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/62882007027443?text=Halo%20GLOBEX%2C%20saya%20ingin%20konsultasi%20tentang%20layanan%20Anda" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Modal Terms of Service -->
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Terms of Service</h3>
+        <hr style="margin: 1rem 0; border-color: #f0b90b;">
+        <p><strong>1. Garansi dan Revisi</strong><br>GLOBEX memberikan garansi revisi hingga proyek dinyatakan selesai dan klien puas.</p>
+        <p><strong>2. Privasi Data</strong><br>100% data klien bersifat rahasia dan tidak akan dibagikan ke pihak ketiga.</p>
+        <p><strong>3. Plagiarisme</strong><br>Untuk layanan akademik, hasil dijamin original dan bebas plagiarisme (cek Turnitin).</p>
+        <p><strong>4. Pembayaran</strong><br>DP 50% di awal, 50% setelah proyek selesai. Pembayaran via transfer bank.</p>
+        <p><strong>5. Deadline</strong><br>Pengerjaan sesuai kesepakatan. Jika terlambat, klien berhak mendapatkan kompensasi.</p>
+        <p><strong>6. Hak Cipta</strong><br>Hasil karya sepenuhnya menjadi milik klien setelah pembayaran lunas.</p>
+    </div>
+</div>
+
+<script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // Modal Terms
+    const modal = document.getElementById('termsModal');
+    const termsLinks = document.querySelectorAll('#termsLink, #termsLinkFooter');
+    const closeModal = document.querySelector('.close-modal');
+
+    termsLinks.forEach(link => {
+        link.onclick = (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        };
+    });
+    closeModal.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+</script>
+</body>
+</html>
